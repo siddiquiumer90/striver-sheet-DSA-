@@ -1,0 +1,19 @@
+// Problem: Two Sum (LeetCode #1)
+// Link: https://leetcode.com/problems/two-sum/
+// Approach: HashMap - for each number, check if (target - num) already seen
+
+import java.util.HashMap;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>(); // value -> index
+        for (int i = 0; i < nums.length; i++) {
+            int need = target - nums[i];
+            if (map.containsKey(need)) {
+                return new int[]{map.get(need), i};
+            }
+            map.put(nums[i], i);
+        }
+        return new int[]{};
+    }
+}
